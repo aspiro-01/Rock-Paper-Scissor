@@ -33,7 +33,7 @@ console.log(getHumanChoice());
 
 //Declare the players score variables
 let humanScore = 0;
-let computerScore = 0;
+let computerScore = 0;  
 
 //Logic to play single round
 function playRound(humanChoice, computerChoice) {
@@ -53,6 +53,19 @@ function playRound(humanChoice, computerChoice) {
     }
 
     //winning results
+    if (humanChoice === 'rock' & computerChoice === 'scissor') {
+        ++humanScore; 
+        console.log (`You win!!! Rock beats Scissor`);
+        console.log(`Your Score: ${humanScore} | Computer Score: ${computerScore}`);
+    } else if (humanChoice === 'paper' & computerChoice === 'rock') {
+        ++humanScore; 
+        console.log (`You win!!! Paper beats Rock`);
+        console.log(`Your Score: ${humanScore} | Computer Score: ${computerScore}`);
+    }  else if (humanChoice === 'scissor' & computerChoice === 'paper') {
+        ++humanScore; 
+        console.log (`You win!!! Scissor beats paper`);
+        console.log(`Your Score: ${humanScore} | Computer Score: ${computerScore}`);
+    } 
 }
 
 
