@@ -28,7 +28,8 @@ console.log(getHumanChoice());
 // function that will compare the human vs computer choice to find win, loose, or draw in the game.
 // when this function is called it should update the score
  function playRound(humanChoice, computerChoice) {
-    
+    console.log(`You chose ${humanChoice}`);
+    console.log(`Computer chose ${computerChoice}`);
     //rock materials
     if (humanChoice === "rock" && computerChoice === "rock"){
         return "Draw!";
@@ -62,3 +63,5 @@ let humanSelection = getHumanChoice();
 let computerSelection = getComputerChoice();
 
  console.log(playRound(humanSelection, computerSelection));
+
+ 
