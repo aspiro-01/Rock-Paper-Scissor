@@ -10,11 +10,11 @@ function getComputerChoice() {
     }
 
 }
-console.log(getComputerChoice())
 
 // human choice
-let promptMsg = prompt("Type either rock/paper/scissor to play!");
+
 function getHumanChoice() {
+    let promptMsg = prompt("Type either rock/paper/scissor to play!");
     promptMsg = promptMsg.toLowerCase()
     if (promptMsg === "rock" || promptMsg === "paper" || promptMsg === "scissor") {
         return promptMsg;
@@ -23,45 +23,93 @@ function getHumanChoice() {
     }
     
 }
-console.log(getHumanChoice());
+
+let humanScore  = 0;
+let computerScore = 0;
+
 
 // function that will compare the human vs computer choice to find win, loose, or draw in the game.
 // when this function is called it should update the score
  function playRound(humanChoice, computerChoice) {
-    console.log(`You chose ${humanChoice}`);
-    console.log(`Computer chose ${computerChoice}`);
+
     //rock materials
     if (humanChoice === "rock" && computerChoice === "rock"){
-        return "Draw!";
+       console.log("Draw!");
     } else if (humanChoice === "rock" && computerChoice === "paper") {
-        return "You Loose!";
+        computerScore = ++computerScore;
+        console.log("You Loose!");
     } else if (humanChoice === "rock" && computerChoice === "scissor"){
-        return "You Win!";
+        humanScore = ++humanScore;
+        console.log("You Win!");
     }
 
     // paper materials
     else if (humanChoice === "paper" && computerChoice === "rock") {
-        return "You Win!";
+        humanScore = ++humanScore;
+        console.log("You Win!");
     } else if (humanChoice === "paper" && computerChoice === "paper") {
-        return "Draw!";
+        console.log("Draw!");
     } else if (humanChoice === "paper" && computerChoice === "scissor") {
-        return "You Loose!";
+        computerScore = ++computerScore;
+        console.log("You Loose!");
     }
 
     //scissor materials 
     else if (humanChoice === "scissor" && computerChoice === "rock") {
-        return "You Loose!";
+        computerScore = ++computerScore;
+        console.log("You Loose!");
     } else if (humanChoice === "scissor" && computerChoice === "paper") {
-        return "You Win!";
+        humanScore = ++humanScore;
+        console.log("You Win!");
     } else if (humanChoice === "scissor" && computerChoice === "scissor") {
-        return "Draw!";
+        console.log("Draw!");
     } else {
         return "Something is wrong!";
     }
  }
-let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice();
 
- console.log(playRound(humanSelection, computerSelection));
 
- 
+
+
+
+function playGame() {
+   
+    for (let i = 0; i < 5; i++) {
+    
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+
+        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+        console.log(`Game ${i+1}`);
+        console.log(`You chose: ${humanSelection}`);
+        console.log(`Computer chose: ${computerSelection}`);
+        playRound(humanSelection, computerSelection);
+        console.log(`Human Score: ${humanScore} | Computer Score: ${computerScore}`);
+        console.log("=========================================================")
+    }
+
+    
+        if ( `${humanScore}` > `${computerScore}` ) {
+        console.log("YOU ARE THE FINAL WINNER!");
+        } else if ( `${humanScore}` < `${computerScore}` ) {
+        console.log("Uh oh! Try again, computer won!")
+        } else if ( `${humanScore}` === `${computerScore}` ) {
+        console.log ("Wow, It was a tie!")
+        } else {
+        console.log("Something went wrong, couldn't calculate the winner :(!")
+        }
+    
+} 
+playGame();
+
+
+
+/* if (playRound(humanSelection, computerSelection) === "You Win!") {
+        return `Human Score: ${humanScore} = ++humanScore | Computer Score:" + ${computerScore} = computerScore;`
+    } else if (playRound(humanSelection, computerSelection) === "You Loose!") {
+        return "Human Score:" + humanScore | "Computer Score:" + ++computerScore;
+    } else if (playRound(humanSelection, computerSelection) === "Draw!") {
+        return "Human Score:" + humanScore | "Computer Score:" + computerScore;
+    } else {
+        return "Something is wrong!"
+    } */ 
