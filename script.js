@@ -10,20 +10,17 @@ function getComputerChoice() {
     }
 
 }
+let computerChoice = getComputerChoice();
 console.log(getComputerChoice())
 
+let promptMsg = prompt("Type either rock/paper/scissor to play!");
 function getHumanChoice() {
-    let promptMsg = prompt("Type either rock/paper/scissor to play!");
-    if (promptMsg === null) {
+    promptMsg = promptMsg.toLowerCase()
+    if (promptMsg === "rock" || promptMsg === "paper" || promptMsg === "scissor") {
         return promptMsg;
     } else {
-        promptMsg = promptMsg.toLowerCase();
+        alert("Invalid option")
     }
-
-    if (promptMsg === "rock" || promptMsg === "paper" || promptMsg === "scissor") {
-        console.log(promptMsg);
-    } else {
-        alert("Invalid option");
-    }
+    
 }
 console.log(getHumanChoice());
